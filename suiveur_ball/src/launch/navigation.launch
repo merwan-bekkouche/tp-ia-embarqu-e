@@ -1,0 +1,33 @@
+<!--
+=============================================================================
+FICHIER LAUNCH : navigation.launch
+=============================================================================
+Lance la navigation autonome sur la route.
+
+Utilisation :
+    Terminal 1 : ./run_robot_rpi.sh
+    Terminal 2 : roslaunch suiveur_ball navigation.launch
+
+Noeuds lancés :
+    - DetecteurRoute : segmentation de la route
+    - ControleurRoute : contrôle du robot
+=============================================================================
+-->
+
+<launch>
+    <!-- Fréquence de contrôle -->
+    <param name="freq_control" value="5"/>
+    
+    <!-- Détecteur de route (Perception) -->
+    <node name="detecteur_route_node" 
+          pkg="suiveur_ball" 
+          type="DetecteurRoute.py" 
+          output="screen"/>
+    
+    <!-- Contrôleur de route (Décision + Action) -->
+    <node name="controleur_route_node" 
+          pkg="suiveur_ball" 
+          type="ControleurRoute.py" 
+          output="screen"/>
+
+</launch>

@@ -1,0 +1,10 @@
+<launch>
+    
+    <param name="freq_control" value="2"/>
+
+    <!-- suiveur ball nodes -->
+   
+    <node pkg="suiveur_ball" name="ctrl_mouv" type="ControleurMouvement.py" cwd="node" output="screen"></node>
+    <node pkg="suiveur_ball" name="detectuer_ball" type="DetecteurBall.py" cwd="node" output="screen"></node>
+    
+</launch>

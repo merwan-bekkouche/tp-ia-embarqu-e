@@ -1,0 +1,38 @@
+<!--
+=============================================================================
+FICHIER LAUNCH : record_manual.launch
+=============================================================================
+Lance le pilotage manuel + enregistrement vidéo pour collecter des données
+sur la piste.
+
+Utilisation :
+    Terminal 1 : ./run_robot_rpi.sh (démarrer robot + caméra)
+    Terminal 2 : roslaunch suiveur_ball record_manual.launch
+
+Cela lance :
+    - TeleopClavier : pour piloter manuellement
+    - Recorder : pour enregistrer les images
+
+Les images seront sauvegardées dans outpy.avi
+=============================================================================
+-->
+
+<launch>
+    <!-- ================================================================= -->
+    <!-- NOEUD TELEOP (Pilotage manuel) -->
+    <!-- ================================================================= -->
+    <node name="teleop_clavier_node" 
+          pkg="suiveur_ball" 
+          type="TeleopClavier.py" 
+          output="screen"
+          launch-prefix="xterm -e"/>
+    
+    <!-- ================================================================= -->
+    <!-- NOEUD RECORDER (Enregistrement vidéo) -->
+    <!-- ================================================================= -->
+    <node name="recorder_node" 
+          pkg="suiveur_ball" 
+          type="recorder.py" 
+          output="screen"/>
+
+</launch>

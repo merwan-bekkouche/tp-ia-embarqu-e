@@ -1,0 +1,10 @@
+<launch>
+    
+    <param name="freq_control" value="2"/>
+
+    <!-- suiveur ball nodes -->
+   
+    <node pkg="suiveur_ball" name="ControleurRouteEnzo" type="ControleurRouteEnzo.py" cwd="node" output="screen"></node>
+    <node pkg="suiveur_ball" name="DetecteurRouteEnzo" type="DetecteurRouteEnzo.py" cwd="node" output="screen"></node>
+    
+</launch>
